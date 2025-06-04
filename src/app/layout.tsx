@@ -1,12 +1,25 @@
 import type { Metadata } from 'next';
-import { Inter, Source_Code_Pro, Montserrat } from 'next/font/google'; // Import Montserrat
+import { Poppins, Playfair_Display, Source_Code_Pro } from 'next/font/google'; // Import Poppins & Playfair Display
 import './globals.css';
 import { Toaster } from "@/components/ui/toaster";
 
 // Initialize fonts
-const inter = Inter({ subsets: ['latin'], variable: '--font-inter', display: 'swap' });
+const poppins = Poppins({ 
+  subsets: ['latin'], 
+  variable: '--font-poppins', 
+  display: 'swap',
+  weight: ['300', '400', '500', '600', '700'] 
+});
+
+const playfairDisplay = Playfair_Display({ 
+  subsets: ['latin'], 
+  variable: '--font-playfair-display', 
+  display: 'swap',
+  weight: ['400', '500', '600', '700', '800', '900']
+});
+
 const sourceCodePro = Source_Code_Pro({ subsets: ['latin'], variable: '--font-source-code-pro', display: 'swap' });
-const montserrat = Montserrat({ subsets: ['latin'], variable: '--font-montserrat', display: 'swap', weights: ['400', '500', '600', '700', '800'] }); // Added Montserrat
+
 
 export const metadata: Metadata = {
   title: 'MaatiMap: Digital Soul of India',
@@ -23,7 +36,7 @@ export default function RootLayout({
       <head>
         {/* next/font handles font loading, direct links usually not needed with it */}
       </head>
-      <body className={`${inter.variable} ${sourceCodePro.variable} ${montserrat.variable} font-body antialiased`}>
+      <body className={`${poppins.variable} ${playfairDisplay.variable} ${sourceCodePro.variable} font-body antialiased`}>
         {children}
         <Toaster />
       </body>

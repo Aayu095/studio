@@ -10,8 +10,8 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        body: ['var(--font-inter)', 'sans-serif'],
-        headline: ['var(--font-montserrat)', 'sans-serif'], // Changed to Montserrat
+        body: ['var(--font-poppins)', 'sans-serif'], // Changed to Poppins
+        headline: ['var(--font-playfair-display)', 'serif'], // Changed to Playfair Display
         code: ['var(--font-source-code-pro)', 'monospace'],
       },
       colors: {
