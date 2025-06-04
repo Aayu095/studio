@@ -8,45 +8,45 @@ body {
 
 @layer base {
   :root {
-    --background: 220 15% 18%; /* Deep Indigo/Charcoal */
-    --foreground: 30 50% 92%; /* Soft Ivory/Light Beige */
+    --background: 38 25% 96%; /* #F8F5F2 Cotton Beige */
+    --foreground: 30 10% 23%; /* #403B36 Mitti Black */
 
-    --card: 220 15% 24%; /* Slightly Lighter Deep Indigo/Charcoal */
-    --card-foreground: 30 50% 92%;
+    --card: 36 100% 96%; /* #FFF7ED Terracotta Tint */
+    --card-foreground: 30 10% 23%; /* #403B36 Mitti Black */
 
-    --popover: 220 15% 15%; /* Darker for Popover */
-    --popover-foreground: 30 50% 92%;
+    --popover: 38 25% 96%; /* #F8F5F2 Cotton Beige */
+    --popover-foreground: 30 10% 23%; /* #403B36 Mitti Black */
 
-    --primary: 35 85% 60%; /* Rich Gold/Amber */
-    --primary-foreground: 220 15% 10%; /* Very Dark for text on primary */
+    --primary: 30 95% 43%; /* #D97706 Kesar Yellow */
+    --primary-foreground: 30 10% 23%; /* #403B36 Mitti Black */
 
-    --secondary: 210 15% 40%; /* Muted Slate Blue */
-    --secondary-foreground: 30 50% 92%;
+    --secondary: 260 83% 61%; /* #7C3AED Indigo Dye */
+    --secondary-foreground: 38 25% 96%; /* #F8F5F2 Cotton Beige */
 
-    --muted: 210 12% 55%; /* Greyish Blue for muted text */
-    --muted-foreground: 30 50% 80%; /* Lighter muted text */
+    --muted: 32 20% 85%; /* #E0D7CF Clay Dust */
+    --muted-foreground: 30 10% 50%; /* Approx #8C857F (Lighter Mitti Black) */
 
-    --accent: 35 85% 65%; /* Slightly brighter Gold/Amber for hover */
-    --accent-foreground: 220 15% 10%;
+    --accent: 25 95% 53%; /* #F97316 Warm Orange (for primary hover/focus) */
+    --accent-foreground: 30 10% 23%; /* #403B36 Mitti Black */
 
-    --destructive: 0 70% 55%; /* Adjusted for dark theme */
-    --destructive-foreground: 0 0% 98%;
+    --destructive: 0 84% 60%; /* #EF4444 Sindoor Red */
+    --destructive-foreground: 38 25% 96%; /* #F8F5F2 Cotton Beige */
 
-    --border: 220 15% 30%; /* Subtle Border */
-    --input: 220 15% 22%; /* Dark Input Background */
-    --ring: 35 90% 55%; /* Consistent with primary for focus rings */
+    --border: 32 20% 85%; /* #E0D7CF Clay Dust */
+    --input: 32 20% 85%; /* #E0D7CF Clay Dust (for input border) */
+    --ring: 30 95% 43%; /* #D97706 Kesar Yellow */
 
     --radius: 0.5rem;
 
     /* ShadCN Sidebar specific theme variables */
-    --sidebar-background: 220 15% 16%; 
-    --sidebar-foreground: 30 50% 92%;
-    --sidebar-primary: 35 85% 60%; 
-    --sidebar-primary-foreground: 220 15% 10%;
-    --sidebar-accent: 35 85% 55%; 
-    --sidebar-accent-foreground: 220 15% 10%;
-    --sidebar-border: 220 15% 28%; 
-    --sidebar-ring: 35 90% 55%;
+    --sidebar-background: 38 25% 96%; 
+    --sidebar-foreground: 30 10% 23%;
+    --sidebar-primary: 30 95% 43%; 
+    --sidebar-primary-foreground: 30 10% 23%;
+    --sidebar-accent: 25 95% 53%; 
+    --sidebar-accent-foreground: 30 10% 23%;
+    --sidebar-border: 32 20% 85%; 
+    --sidebar-ring: 30 95% 43%;
 
     --chart-1: 35 80% 60%;
     --chart-2: 200 70% 60%;
@@ -56,34 +56,43 @@ body {
   }
 
   .dark {
-    --background: 220 15% 18%;
-    --foreground: 30 50% 92%;
-    --card: 220 15% 24%;
-    --card-foreground: 30 50% 92%;
-    --popover: 220 15% 15%;
-    --popover-foreground: 30 50% 92%;
-    --primary: 35 85% 60%;
-    --primary-foreground: 220 15% 10%;
-    --secondary: 210 15% 40%;
-    --secondary-foreground: 30 50% 92%;
-    --muted: 210 12% 55%;
-    --muted-foreground: 30 50% 80%;
-    --accent: 35 85% 65%;
-    --accent-foreground: 220 15% 10%;
-    --destructive: 0 70% 55%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 220 15% 30%;
-    --input: 220 15% 22%;
-    --ring: 35 90% 55%;
+    --background: 38 25% 96%; /* #F8F5F2 Cotton Beige */
+    --foreground: 30 10% 23%; /* #403B36 Mitti Black */
 
-    --sidebar-background: 220 15% 16%; 
-    --sidebar-foreground: 30 50% 92%;
-    --sidebar-primary: 35 85% 60%; 
-    --sidebar-primary-foreground: 220 15% 10%;
-    --sidebar-accent: 35 85% 55%; 
-    --sidebar-accent-foreground: 220 15% 10%;
-    --sidebar-border: 220 15% 28%; 
-    --sidebar-ring: 35 90% 55%;
+    --card: 36 100% 96%; /* #FFF7ED Terracotta Tint */
+    --card-foreground: 30 10% 23%; /* #403B36 Mitti Black */
+
+    --popover: 38 25% 96%; /* #F8F5F2 Cotton Beige */
+    --popover-foreground: 30 10% 23%; /* #403B36 Mitti Black */
+
+    --primary: 30 95% 43%; /* #D97706 Kesar Yellow */
+    --primary-foreground: 30 10% 23%; /* #403B36 Mitti Black */
+
+    --secondary: 260 83% 61%; /* #7C3AED Indigo Dye */
+    --secondary-foreground: 38 25% 96%; /* #F8F5F2 Cotton Beige */
+
+    --muted: 32 20% 85%; /* #E0D7CF Clay Dust */
+    --muted-foreground: 30 10% 50%; /* Approx #8C857F (Lighter Mitti Black) */
+
+    --accent: 25 95% 53%; /* #F97316 Warm Orange (for primary hover/focus) */
+    --accent-foreground: 30 10% 23%; /* #403B36 Mitti Black */
+
+    --destructive: 0 84% 60%; /* #EF4444 Sindoor Red */
+    --destructive-foreground: 38 25% 96%; /* #F8F5F2 Cotton Beige */
+
+    --border: 32 20% 85%; /* #E0D7CF Clay Dust */
+    --input: 32 20% 85%; /* #E0D7CF Clay Dust (for input border) */
+    --ring: 30 95% 43%; /* #D97706 Kesar Yellow */
+
+    /* ShadCN Sidebar specific theme variables */
+    --sidebar-background: 38 25% 96%; 
+    --sidebar-foreground: 30 10% 23%;
+    --sidebar-primary: 30 95% 43%; 
+    --sidebar-primary-foreground: 30 10% 23%;
+    --sidebar-accent: 25 95% 53%; 
+    --sidebar-accent-foreground: 30 10% 23%;
+    --sidebar-border: 32 20% 85%; 
+    --sidebar-ring: 30 95% 43%;
   }
 }
 
