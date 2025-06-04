@@ -10,22 +10,24 @@ export default function MainLayout({
     <div className="flex min-h-screen flex-col bg-background text-foreground">
       <Header />
       <main className="flex-1">{children}</main>
-      <footer className="py-6 md:px-8 md:py-0 bg-background border-t border-border/40">
-        <div className="container flex flex-col items-center justify-between gap-4 md:h-20 md:flex-row max-w-screen-xl px-4 md:px-6">
-          <p className="text-balance text-center text-sm text-muted-foreground md:text-left">
-            &copy; {new Date().getFullYear()} MaatiMap – The Soul of India
-          </p>
-          <div className="flex gap-x-4 sm:gap-x-6 text-sm">
-            <Link href="/about" className="text-muted-foreground hover:text-foreground transition-colors">
-              About
+      <footer className="py-8 bg-background border-t border-accent/40 text-muted-foreground">
+        <div className="container mx-auto max-w-screen-xl px-4 md:px-6 text-center text-sm">
+          <div className="mb-2">
+            <Link href="/about" className="hover:text-foreground transition-colors">
+              About Us
             </Link>
-            <Link href="https://github.com/firebase/studio" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-foreground transition-colors">
-              Github
+            <span className="mx-2 text-muted-foreground/50">|</span>
+            <Link href="/contact" className="hover:text-foreground transition-colors">
+              Contact
             </Link>
-            <Link href="/options" className="text-muted-foreground hover:text-foreground transition-colors">
-              Options
+            <span className="mx-2 text-muted-foreground/50">|</span>
+            <Link href="/privacy-policy" className="hover:text-foreground transition-colors">
+              Privacy Policy
             </Link>
           </div>
+          <p>
+            &copy; {new Date().getFullYear()} MaatiMap. All rights reserved. Explore the Digital Soul of India.
+          </p>
         </div>
       </footer>
     </div>
