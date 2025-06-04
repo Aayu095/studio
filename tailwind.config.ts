@@ -11,7 +11,7 @@ export default {
     extend: {
       fontFamily: {
         body: ['var(--font-inter)', 'sans-serif'],
-        headline: ['var(--font-inter)', 'sans-serif'],
+        headline: ['var(--font-montserrat)', 'sans-serif'], // Changed to Montserrat
         code: ['var(--font-source-code-pro)', 'monospace'],
       },
       colors: {

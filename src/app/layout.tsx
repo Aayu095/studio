@@ -1,11 +1,12 @@
 import type { Metadata } from 'next';
-import { Inter, Source_Code_Pro } from 'next/font/google'; // Import Source_Code_Pro
+import { Inter, Source_Code_Pro, Montserrat } from 'next/font/google'; // Import Montserrat
 import './globals.css';
-import { Toaster } from "@/components/ui/toaster"; // Import Toaster
+import { Toaster } from "@/components/ui/toaster";
 
 // Initialize fonts
-const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
-const sourceCodePro = Source_Code_Pro({ subsets: ['latin'], variable: '--font-source-code-pro' });
+const inter = Inter({ subsets: ['latin'], variable: '--font-inter', display: 'swap' });
+const sourceCodePro = Source_Code_Pro({ subsets: ['latin'], variable: '--font-source-code-pro', display: 'swap' });
+const montserrat = Montserrat({ subsets: ['latin'], variable: '--font-montserrat', display: 'swap', weights: ['400', '500', '600', '700', '800'] }); // Added Montserrat
 
 export const metadata: Metadata = {
   title: 'MaatiMap: Digital Soul of India',
@@ -20,15 +21,9 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        {/* Keep existing Google Font links if any, or rely on next/font */}
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        {/* Example for Inter - next/font handles this better if not using direct links */}
-        {/* <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" /> */}
-        {/* Add Source Code Pro if managed via direct links, otherwise next/font is fine */}
-        <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;500;600;700&display=swap" rel="stylesheet" />
+        {/* next/font handles font loading, direct links usually not needed with it */}
       </head>
-      <body className={`${inter.variable} ${sourceCodePro.variable} font-body antialiased`}>
+      <body className={`${inter.variable} ${sourceCodePro.variable} ${montserrat.variable} font-body antialiased`}>
         {children}
         <Toaster />
       </body>
