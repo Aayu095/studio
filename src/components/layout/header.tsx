@@ -1,8 +1,9 @@
+
 "use client";
 
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
-import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
+import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from '@/components/ui/sheet'; // Added SheetHeader and SheetTitle
 import { Menu, Leaf, Search, User } from 'lucide-react';
 import NavLinks from './nav-links';
 
@@ -15,7 +16,7 @@ export default function Header() {
           <span className="font-headline text-2xl font-bold text-foreground">MaatiMap</span>
         </Link>
 
-        <nav className="hidden lg:flex items-center space-x-2 xl:space-x-3">
+        <nav className="hidden lg:flex items-center space-x-1 xl:space-x-2">
           <NavLinks />
         </nav>
 
@@ -37,11 +38,13 @@ export default function Header() {
                 </Button>
               </SheetTrigger>
               <SheetContent side="right" className="w-[300px] sm:w-[350px] bg-background p-6">
-                <div className="flex flex-col space-y-4">
-                  <Link href="/" className="flex items-center space-x-2 mb-6">
+                <SheetHeader className="mb-6">
+                  <SheetTitle className="flex items-center space-x-2">
                     <Leaf className="h-8 w-8 text-primary" />
-                    <span className="font-headline text-xl font-bold text-foreground">MaatiMap</span>
-                  </Link>
+                    <span className="font-headline text-xl font-bold text-foreground">MaatiMap Menu</span>
+                  </SheetTitle>
+                </SheetHeader>
+                <div className="flex flex-col space-y-4">
                   <NavLinks isMobile={true} />
                 </div>
               </SheetContent>
