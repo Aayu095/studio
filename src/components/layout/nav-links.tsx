@@ -59,7 +59,6 @@ export default function NavLinks({ isMobile = false, onLinkClick, desktopLinkCou
             )}
           >
             {isMobile && item.icon && <item.icon className="mr-3 h-4 w-4 flex-shrink-0" />}
-            {!isMobile && item.label === 'Discover' && item.icon && <item.icon className="mr-1.5 h-4 w-4 flex-shrink-0" /> /* Show icon only for Discover on desktop if desired, or remove this line */}
             {item.label}
           </Link>
         );

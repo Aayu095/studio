@@ -16,7 +16,7 @@ export default function Header() {
         </Link>
 
         <nav className="hidden lg:flex items-center space-x-1 xl:space-x-1.5">
-          <NavLinks desktopLinkCount={6} />
+          <NavLinks desktopLinkCount={9} />
         </nav>
 
         <div className="flex items-center space-x-1">

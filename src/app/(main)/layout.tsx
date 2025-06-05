@@ -14,19 +14,19 @@ export default function MainLayout({
         <div className="container mx-auto max-w-screen-xl px-4 md:px-6 text-center text-sm">
           <div className="mb-2">
             <Link href="/about" className="hover:text-foreground transition-colors">
-              About
+              About Us 
             </Link>
             <span className="mx-2 text-muted-foreground/50">|</span>
-            <Link href="https://github.com" target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors">
-              Github
+            <Link href="/contact" className="hover:text-foreground transition-colors">
+              Contact
             </Link>
             <span className="mx-2 text-muted-foreground/50">|</span>
-            <Link href="/settings" className="hover:text-foreground transition-colors">
-              Options
+            <Link href="/privacy" className="hover:text-foreground transition-colors">
+              Privacy Policy
             </Link>
           </div>
           <p>
-            &copy; {new Date().getFullYear()} MaatiMap. Explore the Digital Soul of India.
+            &copy; {new Date().getFullYear()} MaatiMap. All rights reserved.
           </p>
         </div>
       </footer>
