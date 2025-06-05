@@ -3,106 +3,93 @@
 @tailwind utilities;
 
 body {
-  font-family: var(--font-poppins), sans-serif; /* Updated to Poppins */
+  font-family: var(--font-poppins), sans-serif;
 }
 
 @layer base {
   :root {
-    --background: 43 50% 97%; /* #FAF7F0 Rice White */
-    --foreground: 0 0% 18%; /* #2F2F2F Charcoal Black */
+    --background: 26 16% 15%; /* Very Dark Brown - #2D2621 */
+    --foreground: 58 75% 95%; /* Light Beige/Gold - #FAFBEC */
 
-    --card: 40 100% 98%; /* #FFF9F3 Peach Sand */
-    --card-foreground: 0 0% 18%; /* #2F2F2F Charcoal Black */
+    --card: 26 16% 18%; /* Slightly Lighter Dark Brown - #352D26 */
+    --card-foreground: 58 75% 95%; /* Light Beige/Gold */
 
-    --popover: 43 50% 97%; /* #FAF7F0 Rice White */
-    --popover-foreground: 0 0% 18%; /* #2F2F2F Charcoal Black */
+    --popover: 26 16% 15%; /* Very Dark Brown */
+    --popover-foreground: 58 75% 95%; /* Light Beige/Gold */
 
-    --primary: 45 90% 57%; /* #F4C430 Sunflower Gold */
-    --primary-foreground: 0 0% 18%; /* #2F2F2F Charcoal Black */
+    --primary: 26 70% 55%; /* Orange/Brown - #DE538E */
+    --primary-foreground: 26 16% 10%; /* Dark text for contrast - #221C17 */
 
-    --secondary: 94 29% 50%; /* #78A15A Neem Leaf Green */
-    --secondary-foreground: 43 50% 97%; /* #FAF7F0 Rice White */
+    --secondary: 26 16% 22%; /* Darker Card/Button for "Ask AI Guide" - #423830 */
+    --secondary-foreground: 58 75% 95%; /* Light Beige/Gold */
 
-    --muted: 37 23% 83%; /* #DDD6CC Handmade Paper Beige */
-    --muted-foreground: 0 0% 35%; /* Darker gray derived from Charcoal Black */
+    --muted: 26 15% 25%; /* Muted Dark Shade - #4A423B */
+    --muted-foreground: 58 20% 70%; /* Muted Text - #BCBAAE */
 
-    --accent: 18 61% 71%; /* #E29578 Terracotta Pink */
-    --accent-foreground: 0 0% 18%; /* #2F2F2F Charcoal Black */
+    --accent: 26 74% 28%; /* Darker Brown Accent from image - #D2621D */
+    --accent-foreground: 58 75% 95%; /* Light Beige/Gold */
     
-    /* Kesar Orange for primary CTA hover, can be referenced directly or via a custom var if needed elsewhere */
-    /* --primary-hover: 34 100% 64%; */ /* #FFB347 Kesar Orange */
+    --destructive: 0 70% 50%; /* Dark Theme Red */
+    --destructive-foreground: 58 75% 95%; /* Light Beige/Gold */
 
-
-    --destructive: 0 84% 60%; /* #EF4444 Sindoor Red (kept from previous) */
-    --destructive-foreground: 43 50% 97%; /* #FAF7F0 Rice White */
-
-    --border: 37 23% 83%; /* #DDD6CC Handmade Paper Beige */
-    --input: 37 23% 83%; /* #DDD6CC Handmade Paper Beige (for input border) */
-    --ring: 45 90% 57%; /* #F4C430 Sunflower Gold */
+    --border: 26 10% 25%; /* Subtle Border - #47403A */
+    --input: 26 16% 22%; /* Input Background */
+    --ring: 26 70% 55%; /* Orange/Brown Ring */
 
     --radius: 0.5rem;
 
-    /* ShadCN Sidebar specific theme variables - will mirror the main theme for a light sidebar */
-    --sidebar-background: 43 50% 97%; /* Rice White */
-    --sidebar-foreground: 0 0% 18%; /* Charcoal Black */
-    --sidebar-primary: 45 90% 57%; /* Sunflower Gold */
-    --sidebar-primary-foreground: 0 0% 18%; /* Charcoal Black */
-    --sidebar-accent: 18 61% 71%; /* Terracotta Pink */
-    --sidebar-accent-foreground: 0 0% 18%; /* Charcoal Black */
-    --sidebar-border: 37 23% 83%; /* Handmade Paper Beige */
-    --sidebar-ring: 45 90% 57%; /* Sunflower Gold */
+    /* ShadCN Sidebar specific theme variables - will mirror the dark theme */
+    --sidebar-background: 26 16% 15%;
+    --sidebar-foreground: 58 75% 95%;
+    --sidebar-primary: 26 70% 55%;
+    --sidebar-primary-foreground: 26 16% 10%;
+    --sidebar-accent: 26 74% 28%;
+    --sidebar-accent-foreground: 58 75% 95%;
+    --sidebar-border: 26 10% 25%;
+    --sidebar-ring: 26 70% 55%;
 
-    --chart-1: 45 90% 57%; /* Sunflower Gold */
-    --chart-2: 94 29% 50%; /* Neem Leaf Green */
-    --chart-3: 18 61% 71%; /* Terracotta Pink */
-    --chart-4: 34 100% 64%; /* Kesar Orange */
-    --chart-5: 45 90% 70%; /* Lighter Sunflower Gold */
+    --chart-1: 26 70% 55%; /* Orange/Brown */
+    --chart-2: 26 74% 28%; /* Darker Brown Accent */
+    --chart-3: 58 75% 85%; /* Lighter Beige/Gold */
+    --chart-4: 30 80% 60%; /* A brighter orange variant */
+    --chart-5: 26 70% 45%; /* Darker Orange/Brown */
   }
 
-  .dark { /* For consistency, dark vars will mirror light for now */
-    --background: 43 50% 97%; /* #FAF7F0 Rice White */
-    --foreground: 0 0% 18%; /* #2F2F2F Charcoal Black */
+  .dark { /* Ensure dark theme variables are identical for a consistent dark mode */
+    --background: 26 16% 15%;
+    --foreground: 58 75% 95%;
+    --card: 26 16% 18%;
+    --card-foreground: 58 75% 95%;
+    --popover: 26 16% 15%;
+    --popover-foreground: 58 75% 95%;
+    --primary: 26 70% 55%;
+    --primary-foreground: 26 16% 10%;
+    --secondary: 26 16% 22%;
+    --secondary-foreground: 58 75% 95%;
+    --muted: 26 15% 25%;
+    --muted-foreground: 58 20% 70%;
+    --accent: 26 74% 28%;
+    --accent-foreground: 58 75% 95%;
+    --destructive: 0 70% 50%;
+    --destructive-foreground: 58 75% 95%;
+    --border: 26 10% 25%;
+    --input: 26 16% 22%;
+    --ring: 26 70% 55%;
 
-    --card: 40 100% 98%; /* #FFF9F3 Peach Sand */
-    --card-foreground: 0 0% 18%; /* #2F2F2F Charcoal Black */
+    --sidebar-background: 26 16% 15%; 
+    --sidebar-foreground: 58 75% 95%;
+    --sidebar-primary: 26 70% 55%; 
+    --sidebar-primary-foreground: 26 16% 10%;
+    --sidebar-accent: 26 74% 28%; 
+    --sidebar-accent-foreground: 58 75% 95%;
+    --sidebar-border: 26 10% 25%; 
+    --sidebar-ring: 26 70% 55%;
 
-    --popover: 43 50% 97%; /* #FAF7F0 Rice White */
-    --popover-foreground: 0 0% 18%; /* #2F2F2F Charcoal Black */
-
-    --primary: 45 90% 57%; /* #F4C430 Sunflower Gold */
-    --primary-foreground: 0 0% 18%; /* #2F2F2F Charcoal Black */
-
-    --secondary: 94 29% 50%; /* #78A15A Neem Leaf Green */
-    --secondary-foreground: 43 50% 97%; /* #FAF7F0 Rice White */
-
-    --muted: 37 23% 83%; /* #DDD6CC Handmade Paper Beige */
-    --muted-foreground: 0 0% 35%; /* Darker gray */
-
-    --accent: 18 61% 71%; /* #E29578 Terracotta Pink */
-    --accent-foreground: 0 0% 18%; /* #2F2F2F Charcoal Black */
-
-    --destructive: 0 84% 60%; /* #EF4444 Sindoor Red */
-    --destructive-foreground: 43 50% 97%; /* #FAF7F0 Rice White */
-
-    --border: 37 23% 83%; /* #DDD6CC Handmade Paper Beige */
-    --input: 37 23% 83%; /* #DDD6CC Handmade Paper Beige (for input border) */
-    --ring: 45 90% 57%; /* #F4C430 Sunflower Gold */
-
-    /* ShadCN Sidebar specific theme variables */
-    --sidebar-background: 43 50% 97%; 
-    --sidebar-foreground: 0 0% 18%;
-    --sidebar-primary: 45 90% 57%; 
-    --sidebar-primary-foreground: 0 0% 18%;
-    --sidebar-accent: 18 61% 71%; 
-    --sidebar-accent-foreground: 0 0% 18%;
-    --sidebar-border: 37 23% 83%; 
-    --sidebar-ring: 45 90% 57%;
-
-    --chart-1: 45 90% 57%;
-    --chart-2: 94 29% 50%;
-    --chart-3: 18 61% 71%;
-    --chart-4: 34 100% 64%;
-    --chart-5: 45 90% 70%;
+    --chart-1: 26 70% 55%;
+    --chart-2: 26 74% 28%;
+    --chart-3: 58 75% 85%;
+    --chart-4: 30 80% 60%;
+    --chart-5: 26 70% 45%;
   }
 }
 

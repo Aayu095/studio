@@ -10,23 +10,23 @@ export default function MainLayout({
     <div className="flex min-h-screen flex-col bg-background text-foreground">
       <Header />
       <main className="flex-1">{children}</main>
-      <footer className="py-8 bg-background border-t border-accent/40 text-muted-foreground">
+      <footer className="py-8 bg-background border-t border-border/40 text-muted-foreground">
         <div className="container mx-auto max-w-screen-xl px-4 md:px-6 text-center text-sm">
           <div className="mb-2">
             <Link href="/about" className="hover:text-foreground transition-colors">
-              About Us
+              About
             </Link>
             <span className="mx-2 text-muted-foreground/50">|</span>
-            <Link href="/contact" className="hover:text-foreground transition-colors">
-              Contact
+            <Link href="https://github.com" target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors">
+              Github
             </Link>
             <span className="mx-2 text-muted-foreground/50">|</span>
-            <Link href="/privacy-policy" className="hover:text-foreground transition-colors">
-              Privacy Policy
+            <Link href="/settings" className="hover:text-foreground transition-colors">
+              Options
             </Link>
           </div>
           <p>
-            &copy; {new Date().getFullYear()} MaatiMap. All rights reserved. Explore the Digital Soul of India.
+            &copy; {new Date().getFullYear()} MaatiMap. Explore the Digital Soul of India.
           </p>
         </div>
       </footer>

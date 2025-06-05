@@ -12,11 +12,11 @@ export default function Header() {
       <div className="container flex h-16 max-w-screen-xl items-center justify-between px-4 md:px-6">
         <Link href="/" className="flex items-center space-x-2">
           <Leaf className="h-7 w-7 text-primary" />
-          <span className="font-headline text-xl font-bold text-foreground">MaatiMap</span>
+          <span className="font-headline text-lg font-bold text-foreground">MaatiMap</span>
         </Link>
 
         <nav className="hidden lg:flex items-center space-x-1 xl:space-x-1.5">
-          <NavLinks />
+          <NavLinks desktopLinkCount={6} />
         </nav>
 
         <div className="flex items-center space-x-1">

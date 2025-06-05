@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { cn } from '@/lib/utils';
 import type { LucideIcon } from 'lucide-react';
-import { Palette, CookingPot, Landmark, HandHeart, Music as MusicIconLucide, PartyPopper, Search, LayoutGrid, BookHeart } from 'lucide-react';
+import { Palette, CookingPot, Landmark, HandHeart, Music as MusicIconLucide, PartyPopper, Search as SearchIcon, LayoutGrid, BookHeart } from 'lucide-react'; // Renamed Search to SearchIcon
 
 interface NavItem {
   href: string;
@@ -12,6 +12,7 @@ interface NavItem {
   icon?: LucideIcon; 
 }
 
+// Keep all items here for mobile menu and potential future use
 const mainNavItems: NavItem[] = [
   { href: '/discover?category=art-forms', label: 'Art', icon: Palette },
   { href: '/discover?category=food', label: 'Food', icon: CookingPot },
@@ -19,7 +20,7 @@ const mainNavItems: NavItem[] = [
   { href: '/discover?category=rituals', label: 'Rituals', icon: HandHeart },
   { href: '/discover?category=music', label: 'Music', icon: MusicIconLucide },
   { href: '/discover?category=festivals', label: 'Festivals', icon: PartyPopper },
-  { href: '/discover', label: 'Discover', icon: Search },
+  { href: '/discover', label: 'Discover', icon: SearchIcon },
   { href: '/feed', label: 'Feed', icon: LayoutGrid },
   { href: '/bookmarks', label: 'Bookmarks', icon: BookHeart },
 ];
@@ -28,15 +29,18 @@ const mainNavItems: NavItem[] = [
 interface NavLinksProps {
   isMobile?: boolean;
   onLinkClick?: () => void; 
+  desktopLinkCount?: number; // Number of links to show on desktop
 }
 
-export default function NavLinks({ isMobile = false, onLinkClick }: NavLinksProps) {
+export default function NavLinks({ isMobile = false, onLinkClick, desktopLinkCount }: NavLinksProps) {
   const pathname = usePathname();
   const currentCategory = pathname.includes('/discover?category=') ? pathname.split('=')[1] : null;
 
+  const itemsToDisplay = isMobile ? mainNavItems : (desktopLinkCount ? mainNavItems.slice(0, desktopLinkCount) : mainNavItems);
+
   return (
     <>
-      {mainNavItems.map((item) => {
+      {itemsToDisplay.map((item) => {
         const isActive = item.href.startsWith('/discover?category=') 
           ? currentCategory === item.href.split('=')[1] && pathname.startsWith('/discover')
           : pathname === item.href;
@@ -55,6 +59,7 @@ export default function NavLinks({ isMobile = false, onLinkClick }: NavLinksProp
             )}
           >
             {isMobile && item.icon && <item.icon className="mr-3 h-4 w-4 flex-shrink-0" />}
+            {!isMobile && item.label === 'Discover' && item.icon && <item.icon className="mr-1.5 h-4 w-4 flex-shrink-0" /> /* Show icon only for Discover on desktop if desired, or remove this line */}
             {item.label}
           </Link>
         );
