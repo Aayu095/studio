@@ -1,13 +1,24 @@
 "use client";
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import CulturalItemCard from '@/components/cultural-item-card';
 import { CULTURAL_CATEGORIES, SAMPLE_CULTURAL_ITEMS } from '@/constants';
 import type { CulturalCategorySlug } from '@/lib/types';
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
+import { useSearchParams } from 'next/navigation';
+
 
 export default function DiscoverPage() {
-  const [selectedCategory, setSelectedCategory] = useState<CulturalCategorySlug | 'all'>('all');
+  const searchParams = useSearchParams();
+  const initialCategory = searchParams.get('category') as CulturalCategorySlug | 'all' | null;
+  const [selectedCategory, setSelectedCategory] = useState<CulturalCategorySlug | 'all'>(initialCategory || 'all');
+
+  useEffect(() => {
+    const categoryFromUrl = searchParams.get('category') as CulturalCategorySlug | 'all' | null;
+    if (categoryFromUrl && categoryFromUrl !== selectedCategory) {
+      setSelectedCategory(categoryFromUrl);
+    }
+  }, [searchParams, selectedCategory]);
 
   const filteredItems = selectedCategory === 'all'
     ? SAMPLE_CULTURAL_ITEMS
@@ -21,11 +32,11 @@ export default function DiscoverPage() {
       </p>
 
       <Tabs 
-        defaultValue="all" 
+        value={selectedCategory} 
         onValueChange={(value) => setSelectedCategory(value as CulturalCategorySlug | 'all')} 
         className="w-full mb-8"
       >
-        <TabsList className="grid w-full grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7">
+        <TabsList className="flex overflow-x-auto whitespace-nowrap py-1 space-x-1 sm:justify-center">
           <TabsTrigger value="all">All</TabsTrigger>
           {CULTURAL_CATEGORIES.map(category => (
             <TabsTrigger key={category.slug} value={category.slug}>
@@ -34,7 +45,7 @@ export default function DiscoverPage() {
           ))}
         </TabsList>
         
-        <TabsContent value="all" className="mt-6"> 
+        <TabsContent value={selectedCategory} className="mt-6"> 
           {filteredItems.length > 0 ? (
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
               {filteredItems.map(item => (
@@ -45,20 +56,6 @@ export default function DiscoverPage() {
             <p className="text-center text-muted-foreground font-body">No items found for this category.</p>
           )}
         </TabsContent>
-
-        {CULTURAL_CATEGORIES.map(category => (
-          <TabsContent key={`${category.slug}-content`} value={category.slug} className="mt-6">
-            {filteredItems.length > 0 ? (
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-                {filteredItems.map(item => (
-                  <CulturalItemCard key={item.id} item={item} />
-                ))}
-              </div>
-            ) : (
-              <p className="text-center text-muted-foreground font-body">No items found for this category.</p>
-            )}
-          </TabsContent>
-        ))}
       </Tabs>
     </div>
   );

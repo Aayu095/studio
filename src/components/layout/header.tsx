@@ -15,7 +15,7 @@ export default function Header() {
           <span className="font-headline text-2xl font-bold text-foreground">MaatiMap</span>
         </Link>
 
-        <nav className="hidden md:flex items-center space-x-2 lg:space-x-3">
+        <nav className="hidden lg:flex items-center space-x-2 xl:space-x-3">
           <NavLinks />
         </nav>
 
@@ -28,7 +28,7 @@ export default function Header() {
             <User className="h-5 w-5" />
             <span className="sr-only">User Profile</span>
           </Button>
-          <div className="md:hidden">
+          <div className="lg:hidden">
             <Sheet>
               <SheetTrigger asChild>
                 <Button variant="ghost" size="icon" className="text-foreground hover:text-primary">
