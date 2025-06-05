@@ -37,20 +37,10 @@ const communityStories = [
 
 export default function HomePage() {
   return (
-    <div className="bg-background text-foreground">
+    <div className="text-foreground">
       {/* Hero Section */}
       <section className="relative py-16 md:py-24 lg:py-32 container max-w-screen-xl mx-auto px-4 md:px-6">
-        <div className="absolute inset-0 z-0 opacity-80"> {/* Increased opacity for darker theme */}
-          <Image
-            src="https://placehold.co/1920x1080/2D2621/DE538E.png" 
-            alt="India Map Background"
-            layout="fill"
-            objectFit="cover"
-            quality={80}
-            priority
-            data-ai-hint="India map dark orange"
-          />
-        </div>
+        {/* The div with the specific hero background image has been removed to let the global background show */}
         <div className="relative z-10 text-left md:w-2/3 lg:w-1/2">
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold font-headline mb-6 text-shadow-lg">
             Explore <br /> Cultural India
@@ -70,7 +60,7 @@ export default function HomePage() {
       </section>
 
       {/* Mid Section Cards */}
-      <section className="py-12 lg:py-20 bg-background">
+      <section className="py-12 lg:py-20 bg-background/70 backdrop-blur-sm">
         <div className="container max-w-screen-xl mx-auto px-4 md:px-6">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
             {/* Upcoming Events Card */}
@@ -144,7 +134,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="py-12 lg:py-20 bg-background">
+      <section className="py-12 lg:py-20 bg-background/70 backdrop-blur-sm">
         <div className="container max-w-screen-xl mx-auto px-4 md:px-6">
           <div className="flex justify-between items-center mb-8">
             <h2 className="text-2xl font-bold font-headline">Community Stories</h2>
