@@ -6,21 +6,12 @@ export default function MainLayout({
 }: {
   children: React.ReactNode;
 }) {
-  // Placeholder URL for the Indian motifs background image.
-  // Replace this with the actual path to your uploaded image.
-  // data-ai-hint="Indian motifs pattern dark gold" (for future reference if replacing via an AI tool)
-  const globalBackgroundImageUrl = 'https://placehold.co/1920x1080/1c1c1e/b08d57.png';
+  // The globalBackgroundImageUrl is removed from here as it's now page-specific
 
   return (
     <div
-      className="flex min-h-screen flex-col text-foreground"
-      style={{
-        backgroundImage: `url('${globalBackgroundImageUrl}')`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center center',
-        backgroundAttachment: 'fixed',
-        backgroundRepeat: 'no-repeat',
-      }}
+      className="flex min-h-screen flex-col bg-background text-foreground"
+      // Inline style for global background image is removed from here
     >
       <Header />
       <main className="flex-1">{children}</main>

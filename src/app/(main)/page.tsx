@@ -36,11 +36,23 @@ const communityStories = [
 ];
 
 export default function HomePage() {
+  // Define the background image URL specifically for the homepage
+  const homepageBackgroundImageUrl = 'https://placehold.co/1920x1080/1c1c1e/b08d57.png'; // data-ai-hint="Indian motifs pattern dark gold"
+
   return (
-    <div className="text-foreground">
+    <div 
+      className="text-foreground"
+      style={{
+        backgroundImage: `url('${homepageBackgroundImageUrl}')`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center center',
+        backgroundAttachment: 'fixed', // Keep fixed if you want parallax-like effect on homepage scroll
+        backgroundRepeat: 'no-repeat',
+      }}
+    >
       {/* Hero Section */}
       <section className="relative py-16 md:py-24 lg:py-32 container max-w-screen-xl mx-auto px-4 md:px-6">
-        {/* The div with the specific hero background image has been removed to let the global background show */}
+        {/* Hero background is now handled by the parent div's style */}
         <div className="relative z-10 text-left md:w-2/3 lg:w-1/2">
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold font-headline mb-6 text-shadow-lg">
             Explore <br /> Cultural India
