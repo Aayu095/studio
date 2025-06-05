@@ -24,6 +24,8 @@ interface Message {
   text: string;
 }
 
+const chatBackgroundUrl = 'https://i.postimg.cc/8kXHWVs6/Chat-GPT-Image-Jun-5-2025-10-52-10-AM.png'; // data-ai-hint="Indian motifs pattern dark gold"
+
 export default function CulturalChatbot() {
   const [messages, setMessages] = useState<Message[]>([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -72,7 +74,7 @@ export default function CulturalChatbot() {
   return (
     <Card className="w-full shadow-lg flex flex-col h-[600px]">
       <CardHeader>
-        <CardTitle className="font-headline flex items-center">
+        <CardTitle className="font-headline flex items-center text-xl">
           <Bot className="mr-2 h-6 w-6 text-primary" /> Ask Maati - Your Cultural Guide
         </CardTitle>
         <CardDescription className="font-body text-xs">
@@ -80,7 +82,17 @@ export default function CulturalChatbot() {
         </CardDescription>
       </CardHeader>
       <CardContent className="flex-grow overflow-hidden p-0">
-        <ScrollArea className="h-full p-4" ref={scrollAreaRef}>
+        <ScrollArea 
+          className="h-full p-4" 
+          ref={scrollAreaRef}
+          style={{
+            backgroundImage: `url('${chatBackgroundUrl}')`,
+            backgroundSize: 'cover', // Or 'contain' or 'auto' depending on desired effect
+            backgroundPosition: 'center center',
+            backgroundRepeat: 'no-repeat', // Or 'repeat' if it's a tileable pattern
+          }}
+          data-ai-hint="Indian motifs pattern dark gold"
+        >
           <div className="space-y-4">
             {messages.map((msg) => (
               <div key={msg.id} className={`flex ${msg.sender === 'user' ? 'justify-end' : 'justify-start'}`}>
