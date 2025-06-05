@@ -26,8 +26,8 @@ export default function DiscoverPage() {
   
   return (
     <div className="container mx-auto py-8 px-4">
-      <h1 className="text-3xl font-bold text-center mb-2 font-headline">Discover India's Culture</h1>
-      <p className="text-center text-muted-foreground mb-8 font-body">
+      <h1 className="text-2xl font-bold text-center mb-2 font-headline">Discover India's Culture</h1>
+      <p className="text-center text-muted-foreground mb-8 font-body text-sm">
         Filter by category to explore specific cultural aspects.
       </p>
 
@@ -37,9 +37,9 @@ export default function DiscoverPage() {
         className="w-full mb-8"
       >
         <TabsList className="flex overflow-x-auto whitespace-nowrap py-1 space-x-1 sm:justify-center">
-          <TabsTrigger value="all">All</TabsTrigger>
+          <TabsTrigger value="all" className="text-sm">All</TabsTrigger>
           {CULTURAL_CATEGORIES.map(category => (
-            <TabsTrigger key={category.slug} value={category.slug}>
+            <TabsTrigger key={category.slug} value={category.slug} className="text-sm">
               {category.name}
             </TabsTrigger>
           ))}
@@ -53,7 +53,7 @@ export default function DiscoverPage() {
               ))}
             </div>
           ) : (
-            <p className="text-center text-muted-foreground font-body">No items found for this category.</p>
+            <p className="text-center text-muted-foreground font-body text-sm">No items found for this category.</p>
           )}
         </TabsContent>
       </Tabs>

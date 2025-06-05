@@ -10,7 +10,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
-import { planMyTour, type PlanMyTourOutput } from '@/ai/flows/plan-my-tour'; // Corrected import
+import { planMyTour, type PlanMyTourOutput } from '@/ai/flows/plan-my-tour'; 
 import { Loader2 } from 'lucide-react';
 import ReactMarkdown from 'react-markdown';
 
@@ -51,7 +51,7 @@ export default function PlanMyTourForm() {
     <Card className="w-full shadow-lg">
       <CardHeader>
         <CardTitle className="font-headline">Plan My Cultural Tour</CardTitle>
-        <CardDescription className="font-body">
+        <CardDescription className="font-body text-xs">
           Tell us your interests and travel duration, and our AI will craft a personalized cultural itinerary for you in India.
         </CardDescription>
       </CardHeader>
@@ -63,12 +63,12 @@ export default function PlanMyTourForm() {
               name="interests"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel htmlFor="interests" className="font-body">Your Interests</FormLabel>
+                  <FormLabel htmlFor="interests" className="font-body text-sm">Your Interests</FormLabel>
                   <FormControl>
                     <Textarea
                       id="interests"
                       placeholder="e.g., Ancient temples, Rajasthani folk music, North Indian cuisine, textile arts"
-                      className="resize-none font-body"
+                      className="resize-none font-body text-sm"
                       {...field}
                     />
                   </FormControl>
@@ -81,7 +81,7 @@ export default function PlanMyTourForm() {
               name="duration"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel htmlFor="duration" className="font-body">Duration of Travel</FormLabel>
+                  <FormLabel htmlFor="duration" className="font-body text-sm">Duration of Travel</FormLabel>
                   <FormControl>
                     <Input id="duration" placeholder="e.g., 7 days, 2 weeks, 3 weekends" {...field} />
                   </FormControl>
@@ -91,7 +91,7 @@ export default function PlanMyTourForm() {
             />
           </CardContent>
           <CardFooter>
-            <Button type="submit" disabled={isLoading} className="w-full md:w-auto">
+            <Button type="submit" disabled={isLoading} className="w-full md:w-auto text-sm">
               {isLoading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
               Generate Itinerary
             </Button>
@@ -99,12 +99,12 @@ export default function PlanMyTourForm() {
         </form>
       </Form>
 
-      {error && <p className="p-4 text-destructive font-body">{error}</p>}
+      {error && <p className="p-4 text-destructive font-body text-sm">{error}</p>}
 
       {itinerary && (
         <CardContent className="mt-6">
-          <h3 className="text-xl font-semibold mb-2 font-headline">Your Custom Itinerary:</h3>
-           <div className="prose prose-sm max-w-none bg-secondary/30 p-4 rounded-md font-body">
+          <h3 className="text-lg font-semibold mb-2 font-headline">Your Custom Itinerary:</h3>
+           <div className="prose prose-sm max-w-none bg-secondary/30 p-4 rounded-md font-body text-sm">
              <ReactMarkdown>{itinerary.itinerary}</ReactMarkdown>
           </div>
         </CardContent>

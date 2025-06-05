@@ -7,17 +7,17 @@ export default function AiGuidePage() {
   return (
     <div className="container mx-auto py-8 px-4">
       <div className="text-center mb-8">
-        <MessagesSquare className="h-12 w-12 mx-auto text-primary mb-4" />
-        <h1 className="text-3xl font-bold mb-2 font-headline">AI Cultural Guide</h1>
-        <p className="text-muted-foreground font-body">
+        <MessagesSquare className="h-10 w-10 mx-auto text-primary mb-4" />
+        <h1 className="text-2xl font-bold mb-2 font-headline">AI Cultural Guide</h1>
+        <p className="text-muted-foreground font-body text-sm">
           Your personal assistant for exploring India's culture. Get summaries or plan your tour.
         </p>
       </div>
 
       <Tabs defaultValue="summary" className="w-full max-w-2xl mx-auto">
         <TabsList className="grid w-full grid-cols-2">
-          <TabsTrigger value="summary">Cultural Summary</TabsTrigger>
-          <TabsTrigger value="plan-tour">Plan My Tour</TabsTrigger>
+          <TabsTrigger value="summary" className="text-sm">Cultural Summary</TabsTrigger>
+          <TabsTrigger value="plan-tour" className="text-sm">Plan My Tour</TabsTrigger>
         </TabsList>
         <TabsContent value="summary" className="mt-6">
           <CulturalSummaryForm />

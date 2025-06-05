@@ -9,7 +9,7 @@ import { Palette, CookingPot, Landmark, HandHeart, Music as MusicIconLucide, Par
 interface NavItem {
   href: string;
   label: string;
-  icon?: LucideIcon; // Icon is optional for desktop, used for mobile
+  icon?: LucideIcon; 
 }
 
 const mainNavItems: NavItem[] = [
@@ -27,7 +27,7 @@ const mainNavItems: NavItem[] = [
 
 interface NavLinksProps {
   isMobile?: boolean;
-  onLinkClick?: () => void; // For closing mobile sheet
+  onLinkClick?: () => void; 
 }
 
 export default function NavLinks({ isMobile = false, onLinkClick }: NavLinksProps) {
@@ -47,14 +47,14 @@ export default function NavLinks({ isMobile = false, onLinkClick }: NavLinksProp
             href={item.href}
             onClick={onLinkClick}
             className={cn(
-              "flex items-center px-3 py-2 rounded-md text-sm font-medium transition-colors",
+              "flex items-center px-3 py-1.5 rounded-md font-medium transition-colors",
               isActive
                 ? "bg-primary text-primary-foreground hover:bg-primary/90"
                 : "text-foreground hover:bg-accent hover:text-accent-foreground",
-              isMobile ? "text-lg w-full justify-start" : "text-base",
+              isMobile ? "text-base w-full justify-start" : "text-sm",
             )}
           >
-            {isMobile && item.icon && <item.icon className="mr-3 h-5 w-5 flex-shrink-0" />}
+            {isMobile && item.icon && <item.icon className="mr-3 h-4 w-4 flex-shrink-0" />}
             {item.label}
           </Link>
         );

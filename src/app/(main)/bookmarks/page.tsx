@@ -13,9 +13,9 @@ export default function BookmarksPage() {
     // Show a loading state or skeleton while bookmarks are being loaded from localStorage
     return (
       <div className="container mx-auto py-8 px-4 text-center">
-        <BookHeart className="h-12 w-12 mx-auto text-primary mb-4 animate-pulse" />
-        <h1 className="text-3xl font-bold mb-2 font-headline">Loading Your Saved Culture...</h1>
-        <p className="text-muted-foreground font-body">Please wait a moment.</p>
+        <BookHeart className="h-10 w-10 mx-auto text-primary mb-4 animate-pulse" />
+        <h1 className="text-2xl font-bold mb-2 font-headline">Loading Your Saved Culture...</h1>
+        <p className="text-muted-foreground font-body text-sm">Please wait a moment.</p>
       </div>
     );
   }
@@ -23,9 +23,9 @@ export default function BookmarksPage() {
   return (
     <div className="container mx-auto py-8 px-4">
       <div className="text-center mb-8">
-        <BookHeart className="h-12 w-12 mx-auto text-primary mb-4" />
-        <h1 className="text-3xl font-bold mb-2 font-headline">My Saved Culture</h1>
-        <p className="text-muted-foreground font-body">
+        <BookHeart className="h-10 w-10 mx-auto text-primary mb-4" />
+        <h1 className="text-2xl font-bold mb-2 font-headline">My Saved Culture</h1>
+        <p className="text-muted-foreground font-body text-sm">
           Your collection of favorite cultural items. You have {bookmarksCount} item(s) bookmarked.
         </p>
       </div>
@@ -38,9 +38,9 @@ export default function BookmarksPage() {
         </div>
       ) : (
         <div className="text-center py-10 border-2 border-dashed border-border rounded-lg">
-          <BookHeart className="h-16 w-16 mx-auto text-muted-foreground mb-4" />
-          <p className="text-xl font-semibold text-muted-foreground mb-2 font-body">No Bookmarks Yet</p>
-          <p className="text-muted-foreground font-body">Start exploring and save your favorite cultural discoveries!</p>
+          <BookHeart className="h-12 w-12 mx-auto text-muted-foreground mb-4" />
+          <p className="text-lg font-semibold text-muted-foreground mb-2 font-body">No Bookmarks Yet</p>
+          <p className="text-muted-foreground font-body text-sm">Start exploring and save your favorite cultural discoveries!</p>
         </div>
       )}
     </div>

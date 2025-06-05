@@ -23,8 +23,8 @@ export default function CulturalItemDetailPage() {
   if (!item) {
     return (
       <div className="container mx-auto py-8 px-4 text-center">
-        <h1 className="text-2xl font-bold text-destructive font-headline">Item not found</h1>
-        <p className="text-muted-foreground font-body">The cultural item you are looking for does not exist or has been moved.</p>
+        <h1 className="text-xl font-bold text-destructive font-headline">Item not found</h1>
+        <p className="text-muted-foreground font-body text-sm">The cultural item you are looking for does not exist or has been moved.</p>
         <Button asChild className="mt-4">
           <Link href="/discover">
             <ArrowLeft className="mr-2 h-4 w-4" /> Back to Discover
@@ -41,7 +41,7 @@ export default function CulturalItemDetailPage() {
 
   return (
     <div className="container mx-auto py-8 px-4">
-      <Button asChild variant="outline" className="mb-6">
+      <Button asChild variant="outline" className="mb-6 text-sm">
         <Link href={`/discover?category=${item.category}`}>
           <ArrowLeft className="mr-2 h-4 w-4" /> Back to {categoryInfo?.name || 'Discover'}
         </Link>
@@ -61,10 +61,10 @@ export default function CulturalItemDetailPage() {
         </CardHeader>
         <CardContent className="p-6">
           <div className="flex flex-col md:flex-row justify-between md:items-center mb-4">
-            <CardTitle className="text-3xl md:text-4xl font-headline mb-2 md:mb-0">{item.name}</CardTitle>
+            <CardTitle className="text-2xl md:text-3xl font-headline mb-2 md:mb-0">{item.name}</CardTitle>
             {hydrated && (
-              <Button variant="ghost" size="lg" onClick={handleBookmarkToggle} className="text-muted-foreground hover:text-primary self-start md:self-center">
-                {isBookmarked(item.id) ? <Star className="h-6 w-6 mr-2 fill-primary text-primary" /> : <StarOff className="h-6 w-6 mr-2" />}
+              <Button variant="ghost" size="lg" onClick={handleBookmarkToggle} className="text-muted-foreground hover:text-primary self-start md:self-center text-sm">
+                {isBookmarked(item.id) ? <Star className="h-5 w-5 mr-2 fill-primary text-primary" /> : <StarOff className="h-5 w-5 mr-2" />}
                 {isBookmarked(item.id) ? 'Bookmarked' : 'Bookmark'}
               </Button>
             )}
@@ -72,21 +72,21 @@ export default function CulturalItemDetailPage() {
           
           <div className="flex flex-wrap gap-2 mb-4">
             {categoryInfo && (
-              <Badge variant="secondary" className="text-sm px-3 py-1">{categoryInfo.name}</Badge>
+              <Badge variant="secondary" className="text-xs px-2 py-0.5">{categoryInfo.name}</Badge>
             )}
-            <Badge variant="outline" className="text-sm px-3 py-1 flex items-center">
-              <MapPinIcon className="h-4 w-4 mr-1.5" />
+            <Badge variant="outline" className="text-xs px-2 py-0.5 flex items-center">
+              <MapPinIcon className="h-3 w-3 mr-1" />
               {item.region}
             </Badge>
             {item.tags.map(tag => (
-              <Badge key={tag} variant="outline" className="text-sm px-3 py-1 capitalize">{tag}</Badge>
+              <Badge key={tag} variant="outline" className="text-xs px-2 py-0.5 capitalize">{tag}</Badge>
             ))}
           </div>
 
-          <CardDescription className="text-lg text-foreground mb-6 font-body">{item.summary}</CardDescription>
+          <CardDescription className="text-base text-foreground mb-6 font-body">{item.summary}</CardDescription>
           
           {item.description && (
-            <div className="prose max-w-none prose-headings:font-headline prose-p:font-body">
+            <div className="prose prose-sm max-w-none prose-headings:font-headline prose-p:font-body">
               <ReactMarkdown>{item.description}</ReactMarkdown>
             </div>
           )}
@@ -94,7 +94,7 @@ export default function CulturalItemDetailPage() {
         </CardContent>
         {(item.latitude && item.longitude) && (
           <CardFooter className="p-6 bg-muted/50">
-             <p className="text-sm text-muted-foreground font-body">
+             <p className="text-xs text-muted-foreground font-body">
                 Find it on the map: Latitude: {item.latitude}, Longitude: {item.longitude}
              </p>
              {/* Placeholder for a small map snippet or link to main map */}

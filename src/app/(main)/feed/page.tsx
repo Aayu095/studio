@@ -30,47 +30,47 @@ export default function FeedPage() {
 
   return (
     <div className="container mx-auto py-8 px-4">
-      <h1 className="text-3xl font-bold text-center mb-2 font-headline">Community Feed</h1>
-      <p className="text-center text-muted-foreground mb-8 font-body">
+      <h1 className="text-2xl font-bold text-center mb-2 font-headline">Community Feed</h1>
+      <p className="text-center text-muted-foreground mb-8 font-body text-sm">
         See what's new and trending in India's cultural landscape.
       </p>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8 p-4 border rounded-lg shadow">
         <div>
-          <label htmlFor="search-feed" className="block text-sm font-medium text-foreground mb-1">Search</label>
+          <label htmlFor="search-feed" className="block text-xs font-medium text-foreground mb-1">Search</label>
           <Input 
             id="search-feed"
             type="text" 
             placeholder="Search by name, tag, etc." 
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            className="w-full"
+            className="w-full text-sm"
           />
         </div>
         <div>
-          <label htmlFor="region-filter" className="block text-sm font-medium text-foreground mb-1">Region</label>
+          <label htmlFor="region-filter" className="block text-xs font-medium text-foreground mb-1">Region</label>
           <Select value={selectedRegion} onValueChange={setSelectedRegion}>
-            <SelectTrigger id="region-filter" className="w-full">
+            <SelectTrigger id="region-filter" className="w-full text-sm">
               <SelectValue placeholder="Filter by region" />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="all">All Regions</SelectItem>
+              <SelectItem value="all" className="text-sm">All Regions</SelectItem>
               {uniqueRegions.map(region => (
-                <SelectItem key={region} value={region}>{region}</SelectItem>
+                <SelectItem key={region} value={region} className="text-sm">{region}</SelectItem>
               ))}
             </SelectContent>
           </Select>
         </div>
         <div>
-          <label htmlFor="artform-filter" className="block text-sm font-medium text-foreground mb-1">Category</label>
+          <label htmlFor="artform-filter" className="block text-xs font-medium text-foreground mb-1">Category</label>
           <Select value={selectedArtform} onValueChange={(value) => setSelectedArtform(value as CulturalCategorySlug | 'all')}>
-            <SelectTrigger id="artform-filter" className="w-full">
+            <SelectTrigger id="artform-filter" className="w-full text-sm">
               <SelectValue placeholder="Filter by category" />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="all">All Categories</SelectItem>
+              <SelectItem value="all" className="text-sm">All Categories</SelectItem>
               {CULTURAL_CATEGORIES.map(category => (
-                <SelectItem key={category.slug} value={category.slug}>{category.name}</SelectItem>
+                <SelectItem key={category.slug} value={category.slug} className="text-sm">{category.name}</SelectItem>
               ))}
             </SelectContent>
           </Select>
@@ -84,7 +84,7 @@ export default function FeedPage() {
           ))}
         </div>
       ) : (
-        <p className="text-center text-muted-foreground mt-8 font-body">No items match your filters. Try broadening your search!</p>
+        <p className="text-center text-muted-foreground mt-8 font-body text-sm">No items match your filters. Try broadening your search!</p>
       )}
     </div>
   );
