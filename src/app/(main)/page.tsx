@@ -37,7 +37,7 @@ const communityStories = [
 
 export default function HomePage() {
   // Define the background image URL specifically for the homepage
-  const homepageBackgroundImageUrl = 'https://i.postimg.cc/8kXHWVs6/Chat-GPT-Image-Jun-5-2025-10-52-10-AM.png'; // data-ai-hint="Indian motifs pattern dark gold"
+  const homepageBackgroundImageUrl = 'https://i.postimg.cc/52yMfCv6/Chat-GPT-Image-Jun-6-2025-11-09-18-AM.png'; // data-ai-hint="Indian motifs pattern dark gold"
 
   return (
     <div 

@@ -1,43 +1,62 @@
-import React from 'react';
+// components/Header.tsx
+'use client';
 
-const Header = () => {
+import { GiIndiaGate, GiMusicalNotes, GiChopsticks, GiClassicalKnowledge, GiBookmark, GiLotus } from 'react-icons/gi';
+import { TbBuildingPavilion } from 'react-icons/tb';
+import { PiPlant } from 'react-icons/pi';
+import { FaSearch, FaUser } from 'react-icons/fa';
+import { useRouter } from 'next/navigation';
+
+export default function Header() {
   return (
-    <header style={{ backgroundColor: '#1C1C1E', color: '#B08D57', padding: '10px 20px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-      <div style={{ display: 'flex', alignItems: 'center' }}>
-        <img src="/MaatiMapLogo.png" alt="MaatiMap Logo" style={{ height: '50px', marginRight: '10px' }} />
-        <h1 style={{ fontSize: '1.5em', fontWeight: 'bold' }}>MaatiMap</h1>
+    <header className="bg-[#1C1C1E] text-[#F3E4BE] px-6 py-4 flex items-center justify-between shadow-md z-50 relative">
+      
+      {/* Logo Section */}
+      <div className="flex items-center space-x-2">
+        <img src="https://i.postimg.cc/4xTXVnpN/mandala.png" alt="MaatiMap Logo" className="h-8" />
+        <span className="text-xl font-bold text-[#F3E4BE]">MaatiMap</span>
       </div>
 
-      <nav>
-        <ul style={{ listStyleType: 'none', padding: 0, display: 'flex' }}>
-          <li style={{ marginRight: '20px' }}>
-            <a href="#" style={{ color: '#B08D57', textDecoration: 'none' }}>Art</a>
-          </li>
-          <li style={{ marginRight: '20px' }}>
-            <a href="#" style={{ color: '#B08D57', textDecoration: 'none' }}>Food</a>
-          </li>
-          <li style={{ marginRight: '20px' }}>
-            <a href="#" style={{ color: '#B08D57', textDecoration: 'none' }}>Heritage</a>
-          </li>
-          <li style={{ marginRight: '20px' }}>
-            <a href="#" style={{ color: '#B08D57', textDecoration: 'none' }}>Rituals</a>
-          </li>
-          <li style={{ marginRight: '20px' }}>
-            <a href="#" style={{ color: '#B08D57', textDecoration: 'none' }}>Music</a>
-          </li>
-          <li>
-            <a href="#" style={{ color: '#B08D57', textDecoration: 'none' }}>Festivals</a>
-          </li>
-        </ul>
+      {/* Navigation Icons */}
+      <nav className="hidden md:flex items-center space-x-6">
+        <NavItem icon={<PiPlant />} label="Art" route="/discover?category=art" />
+        <NavItem icon={<GiChopsticks />} label="Food" route="/discover?category=food" />
+        <NavItem icon={<TbBuildingPavilion />} label="Heritage" route="/discover?category=heritage" />
+        <NavItem icon={<GiClassicalKnowledge />} label="Rituals" route="/discover?category=rituals" />
+        <NavItem icon={<GiMusicalNotes />} label="Music" route="/discover?category=music" />
+        <NavItem icon={<GiLotus />} label="Festivals" route="/discover?category=festivals" />
+        <NavItem icon={<GiIndiaGate />} label="Discover" route="/discover" />
+        <NavItem icon={<GiBookmark />} label="Bookmarks" route="/bookmarks" />
       </nav>
 
-      <div>
-        <a href="#" style={{ color: '#B08D57', textDecoration: 'none', marginRight: '20px' }}>Discover</a>
-        <a href="#" style={{ color: '#B08D57', textDecoration: 'none', marginRight: '20px' }}>Feed</a>
-        <a href="#" style={{ color: '#B08D57', textDecoration: 'none' }}>Bookmarks</a>
+      {/* Action Buttons */}
+      <div className="flex items-center space-x-4">
+        <button className="text-[#F3E4BE] hover:text-[#B08D57]">
+          <FaSearch />
+        </button>
+        <button className="text-[#F3E4BE] hover:text-[#B08D57]">
+          <FaUser />
+        </button>
       </div>
     </header>
   );
-};
+}
 
-export default Header;
+// Reusable nav item
+function NavItem({ icon, label, route }: { icon: JSX.Element; label: string; route: string }) {
+  const router = useRouter();
+
+  const handleClick = () => {
+    router.push(route);
+  };
+
+  return (
+    <div
+      className="flex flex-col items-center text-sm text-[#F3E4BE] hover:text-[#B08D57] cursor-pointer"
+      onClick={handleClick}
+    >
+      <div className="text-xl">{icon}</div>
+      <span className="mt-1">{label}</span>
+    </div>
+  );
+}
