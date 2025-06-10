@@ -38,7 +38,8 @@ export default function CulturalItemCard({ item }: CulturalItemCardProps) {
                 alt={item.name}
                 layout="fill"
                 objectFit="cover"
-                data-ai-hint={item.imageHint || item.name.toLowerCase()}
+                data-ai-hint={item.imageHint || item.name?.toLowerCase() || "culture"}
+
               />
             </div>
           </CardHeader>

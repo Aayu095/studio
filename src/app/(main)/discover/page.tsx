@@ -1,60 +1,51 @@
-"use client";
-
+'use client';
 import { useState, useEffect } from 'react';
-import CulturalItemCard from '@/components/cultural-item-card';
-import { CULTURAL_CATEGORIES, SAMPLE_CULTURAL_ITEMS } from '@/constants';
-import type { CulturalCategorySlug } from '@/lib/types';
-import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
+import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs';
+import { CULTURAL_CATEGORIES } from '@/constants';
 import { useSearchParams } from 'next/navigation';
-
+import CulturalItemCard from '@/components/cultural-item-card';
 
 export default function DiscoverPage() {
   const searchParams = useSearchParams();
-  const initialCategory = searchParams.get('category') as CulturalCategorySlug | 'all' | null;
-  const [selectedCategory, setSelectedCategory] = useState<CulturalCategorySlug | 'all'>(initialCategory || 'all');
+  const initialCategory = (searchParams.get('category') as string) || 'all';
+  const [selectedCategory, setSelectedCategory] = useState(initialCategory);
+  const [items, setItems] = useState<any[]>([]);
 
   useEffect(() => {
-    const categoryFromUrl = searchParams.get('category') as CulturalCategorySlug | 'all' | null;
-    if (categoryFromUrl && categoryFromUrl !== selectedCategory) {
-      setSelectedCategory(categoryFromUrl);
-    }
-  }, [searchParams, selectedCategory]);
+    const cat = (searchParams.get('category') as string) || 'all';
+    if (cat !== selectedCategory) setSelectedCategory(cat);
+  }, [searchParams]);
+
+  useEffect(() => {
+    console.log('Fetching data...');
+    fetch('/api/get-cultures')
+      .then(res => res.json())
+      .then(data => { console.log('Data received:', data); setItems(data); })
+      .catch(err => console.error("Error:", err));
+  }, []);
 
   const filteredItems = selectedCategory === 'all'
-    ? SAMPLE_CULTURAL_ITEMS
-    : SAMPLE_CULTURAL_ITEMS.filter(item => item.category === selectedCategory);
-  
+    ? items
+    : items.filter(item => item.category === selectedCategory);
+
+  if (items.length === 0) {
+    return <div className="text-center py-12">No data found.</div>;
+  }
+
   return (
     <div className="container mx-auto py-8 px-4">
       <h1 className="text-2xl font-bold text-center mb-2 font-headline">Discover India's Culture</h1>
-      <p className="text-center text-muted-foreground mb-8 font-body text-sm">
-        Filter by category to explore specific cultural aspects.
-      </p>
-
-      <Tabs 
-        value={selectedCategory} 
-        onValueChange={(value) => setSelectedCategory(value as CulturalCategorySlug | 'all')} 
-        className="w-full mb-8"
-      >
-        <TabsList className="flex overflow-x-auto whitespace-nowrap py-1 space-x-1 sm:justify-center">
-          <TabsTrigger value="all" className="text-sm">All</TabsTrigger>
-          {CULTURAL_CATEGORIES.map(category => (
-            <TabsTrigger key={category.slug} value={category.slug} className="text-sm">
-              {category.name}
-            </TabsTrigger>
-          ))}
+      <Tabs value={selectedCategory} onValueChange={(v) => setSelectedCategory(v)}>
+        <TabsList> {/* use your UI styling here */ }
+          <TabsTrigger value="all">All</TabsTrigger>
+          {CULTURAL_CATEGORIES.map(c => <TabsTrigger key={c.slug} value={c.slug}>{c.name}</TabsTrigger>)}
         </TabsList>
-        
-        <TabsContent value={selectedCategory} className="mt-6"> 
-          {filteredItems.length > 0 ? (
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-              {filteredItems.map(item => (
-                <CulturalItemCard key={item.id} item={item} />
-              ))}
-            </div>
-          ) : (
-            <p className="text-center text-muted-foreground font-body text-sm">No items found for this category.</p>
-          )}
+        <TabsContent value={selectedCategory}>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+            {filteredItems.map(item => (
+              <CulturalItemCard key={item._id} item={item} />
+            ))}
+          </div>
         </TabsContent>
       </Tabs>
     </div>

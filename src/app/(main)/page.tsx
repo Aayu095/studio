@@ -8,7 +8,7 @@ const upcomingEvent = {
   name: 'Theyyam',
   location: 'Kerala',
   date: 'April 7 - 14',
-  imageUrl: 'https://placehold.co/600x800/D2621D/FAFBEC.png', 
+  imageUrl: 'https://i.postimg.cc/pLhBc0Gy/theyyam.jpg',
   imageHint: 'Theyyam ritual dark',
   href: '/discover/festivals/theyyam-placeholder',
 };
@@ -16,23 +16,23 @@ const upcomingEvent = {
 const localHighlight = {
   name: 'Near You',
   description: 'Based on your location',
-  imageUrl: 'https://placehold.co/600x400/D2621D/FAFBEC.png',
+  imageUrl: 'https://i.postimg.cc/2yB7xrCT/culture-29-07-24-E-blog7.png',
   imageHint: 'local market dark',
   href: '/nearby',
 };
 
 const tourPlanner = {
   title: 'Plan a cultural trip to Rajasthan',
-  imageUrl: 'https://placehold.co/600x400/DE538E/2D2621.png',
+  imageUrl: 'https://i.postimg.cc/3wNy51zD/Customised-travel-packages-for-Rajasthan.png',
   imageHint: 'Rajasthan fort dark',
-  href: '/ai-guide', 
+  href: '/ai-guide',
 };
 
 const communityStories = [
-  { id: 'madhubani', name: 'Madhubani Painting', location: 'Bihar', imageUrl: 'https://placehold.co/400x300/DE538E/2D2621.png', imageHint: 'Madhubani art dark', href: '/discover/art-forms/madhubani-placeholder' },
-  { id: 'biryani-story', name: 'Biryani', location: 'Hyderabad', imageUrl: 'https://placehold.co/400x300/D2621D/FAFBEC.png', imageHint: 'Hyderabadi Biryani dark', href: '/discover/food/biryani-hyderabadi' },
-  { id: 'bharatanatyam', name: 'Bharatanatyam', location: 'Tamil Nadu', imageUrl: 'https://placehold.co/400x300/DE538E/2D2621.png', imageHint: 'Bharatanatyam dance dark', href: '/discover/art-forms/bharatanatyam-placeholder' },
-  { id: 'meenakari', name: 'Meenakari Work', location: 'Rajasthan', imageUrl: 'https://placehold.co/400x300/D2621D/FAFBEC.png', imageHint: 'Meenakari craft dark', href: '/discover/art-forms/meenakari-placeholder' },
+  { id: 'madhubani', name: 'Madhubani Painting', location: 'Bihar', imageUrl: 'https://i.postimg.cc/wMmMJmxf/Peacock-Madhubani-Painting-Folk-Art-Of-India-af8a25dc-dbe6-44b2-ab61-200d1f566721.jpg', imageHint: 'Madhubani art dark', href: '/discover/art-forms/madhubani-placeholder' },
+  { id: 'biryani-story', name: 'Biryani', location: 'Hyderabad', imageUrl: 'https://i.postimg.cc/cL9ThXp5/hyderabadi-biryani.jpg', imageHint: 'Hyderabadi Biryani dark', href: '/discover/food/biryani-hyderabadi' },
+  { id: 'bharatanatyam', name: 'Bharatanatyam', location: 'Tamil Nadu', imageUrl: 'https://i.postimg.cc/cH1nHZK6/baharatanatyama.jpg', imageHint: 'Bharatanatyam dance dark', href: '/discover/art-forms/bharatanatyam-placeholder' },
+  { id: 'meenakari', name: 'Meenakari Work', location: 'Rajasthan', imageUrl: 'https://i.postimg.cc/dVgByLPh/Meenakari-work.jpg', imageHint: 'Meenakari craft dark', href: '/discover/art-forms/meenakari-placeholder' },
 ];
 
 export default function HomePage() {
@@ -40,7 +40,7 @@ export default function HomePage() {
   const homepageBackgroundImageUrl = 'https://i.postimg.cc/52yMfCv6/Chat-GPT-Image-Jun-6-2025-11-09-18-AM.png'; // data-ai-hint="Indian motifs pattern dark gold"
 
   return (
-    <div 
+    <div
       className="text-foreground"
       style={{
         backgroundImage: `url('${homepageBackgroundImageUrl}')`,
@@ -98,7 +98,7 @@ export default function HomePage() {
             </Card>
 
             <div className="space-y-6 lg:space-y-8 md:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-6 lg:gap-8">
-               <Card className="bg-card border-border/50 shadow-xl overflow-hidden group">
+              <Card className="bg-card border-border/50 shadow-xl overflow-hidden group">
                 <Link href={localHighlight.href} className="block h-full">
                   <div className="relative w-full h-40 sm:h-48">
                     <Image
@@ -119,9 +119,9 @@ export default function HomePage() {
                   </CardContent>
                 </Link>
               </Card>
-              
+
               <Card className="bg-card border-border/50 shadow-xl overflow-hidden group">
-                 <Link href={tourPlanner.href} className="block h-full">
+                <Link href={tourPlanner.href} className="block h-full">
                   <div className="relative w-full h-40 sm:h-48">
                     <Image
                       src={tourPlanner.imageUrl}
@@ -135,7 +135,7 @@ export default function HomePage() {
                   <CardContent className="p-5">
                     <h3 className="text-xs uppercase tracking-wider font-semibold text-primary mb-1">Tour Planner</h3>
                     <CardTitle className="text-lg font-headline mb-1 group-hover:text-primary transition-colors leading-tight">{tourPlanner.title}</CardTitle>
-                     <p className="text-sm text-foreground/70 font-body flex items-center">
+                    <p className="text-sm text-foreground/70 font-body flex items-center">
                       Plan your trip <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                     </p>
                   </CardContent>
@@ -176,6 +176,27 @@ export default function HomePage() {
                 </Link>
               </Card>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* MaatiLoot Spin Wheel Section */}
+      <section className="py-16 lg:py-24 bg-background/80 backdrop-blur-md border-t border-border/40">
+        <div className="container max-w-screen-xl mx-auto px-4 md:px-6 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold font-headline mb-6 text-primary">
+            Try Your Luck at <span className="text-foreground">MaatiLoot</span> 🎉
+          </h2>
+          <p className="text-sm md:text-base text-foreground/70 font-body max-w-2xl mx-auto mb-10">
+            Spin the cultural wheel and win virtual rewards from different regions of India – from folk tales to food trails!
+          </p>
+
+          {/* Embedded Spin Wheel UI */}
+          <div className="flex justify-center">
+            <iframe
+              src="/maatiloot"
+              className="w-full max-w-3xl h-[480px] rounded-2xl shadow-2xl border border-border/50"
+              style={{ backgroundColor: '#0f0f0f' }}
+            ></iframe>
           </div>
         </div>
       </section>
