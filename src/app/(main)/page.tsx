@@ -1,58 +1,92 @@
-import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import Image from 'next/image';
-import Link from 'next/link';
-import { ArrowRight } from 'lucide-react';
+"use client";
+
+import { useState } from "react";
+import dynamic from "next/dynamic";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import Image from "next/image";
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
+
+const IndiaMap = dynamic(() => import("@/components/IndiaMap"), { ssr: false });
 
 const upcomingEvent = {
-  name: 'Theyyam',
-  location: 'Kerala',
-  date: 'April 7 - 14',
-  imageUrl: 'https://i.postimg.cc/pLhBc0Gy/theyyam.jpg',
-  imageHint: 'Theyyam ritual dark',
-  href: '/discover/festivals/theyyam-placeholder',
+  name: "Theyyam",
+  location: "Kerala",
+  date: "April 7 - 14",
+  imageUrl: "https://i.postimg.cc/pLhBc0Gy/theyyam.jpg",
+  imageHint: "Theyyam ritual dark",
+  href: "/discover/festivals/theyyam-placeholder",
 };
 
 const localHighlight = {
-  name: 'Near You',
-  description: 'Based on your location',
-  imageUrl: 'https://i.postimg.cc/2yB7xrCT/culture-29-07-24-E-blog7.png',
-  imageHint: 'local market dark',
-  href: '/nearby',
+  name: "Near You",
+  description: "Based on your location",
+  imageUrl: "https://i.postimg.cc/2yB7xrCT/culture-29-07-24-E-blog7.png",
+  imageHint: "local market dark",
+  href: "/nearby",
 };
 
 const tourPlanner = {
-  title: 'Plan a cultural trip to Rajasthan',
-  imageUrl: 'https://i.postimg.cc/3wNy51zD/Customised-travel-packages-for-Rajasthan.png',
-  imageHint: 'Rajasthan fort dark',
-  href: '/ai-guide',
+  title: "Plan a cultural trip to Rajasthan",
+  imageUrl: "https://i.postimg.cc/3wNy51zD/Customised-travel-packages-for-Rajasthan.png",
+  imageHint: "Rajasthan fort dark",
+  href: "/ai-guide",
 };
 
 const communityStories = [
-  { id: 'madhubani', name: 'Madhubani Painting', location: 'Bihar', imageUrl: 'https://i.postimg.cc/wMmMJmxf/Peacock-Madhubani-Painting-Folk-Art-Of-India-af8a25dc-dbe6-44b2-ab61-200d1f566721.jpg', imageHint: 'Madhubani art dark', href: '/discover/art-forms/madhubani-placeholder' },
-  { id: 'biryani-story', name: 'Biryani', location: 'Hyderabad', imageUrl: 'https://i.postimg.cc/cL9ThXp5/hyderabadi-biryani.jpg', imageHint: 'Hyderabadi Biryani dark', href: '/discover/food/biryani-hyderabadi' },
-  { id: 'bharatanatyam', name: 'Bharatanatyam', location: 'Tamil Nadu', imageUrl: 'https://i.postimg.cc/cH1nHZK6/baharatanatyama.jpg', imageHint: 'Bharatanatyam dance dark', href: '/discover/art-forms/bharatanatyam-placeholder' },
-  { id: 'meenakari', name: 'Meenakari Work', location: 'Rajasthan', imageUrl: 'https://i.postimg.cc/dVgByLPh/Meenakari-work.jpg', imageHint: 'Meenakari craft dark', href: '/discover/art-forms/meenakari-placeholder' },
+  {
+    id: "madhubani",
+    name: "Madhubani Painting",
+    location: "Bihar",
+    imageUrl:
+      "https://i.postimg.cc/wMmMJmxf/Peacock-Madhubani-Painting-Folk-Art-Of-India-af8a25dc-dbe6-44b2-ab61-200d1f566721.jpg",
+    imageHint: "Madhubani art dark",
+    href: "/discover/art-forms/madhubani-placeholder",
+  },
+  {
+    id: "biryani-story",
+    name: "Biryani",
+    location: "Hyderabad",
+    imageUrl: "https://i.postimg.cc/cL9ThXp5/hyderabadi-biryani.jpg",
+    imageHint: "Hyderabadi Biryani dark",
+    href: "/discover/food/biryani-hyderabadi",
+  },
+  {
+    id: "bharatanatyam",
+    name: "Bharatanatyam",
+    location: "Tamil Nadu",
+    imageUrl: "https://i.postimg.cc/cH1nHZK6/baharatanatyama.jpg",
+    imageHint: "Bharatanatyam dance dark",
+    href: "/discover/art-forms/bharatanatyam-placeholder",
+  },
+  {
+    id: "meenakari",
+    name: "Meenakari Work",
+    location: "Rajasthan",
+    imageUrl: "https://i.postimg.cc/dVgByLPh/Meenakari-work.jpg",
+    imageHint: "Meenakari craft dark",
+    href: "/discover/art-forms/meenakari-placeholder",
+  },
 ];
 
 export default function HomePage() {
-  // Define the background image URL specifically for the homepage
-  const homepageBackgroundImageUrl = 'https://i.postimg.cc/52yMfCv6/Chat-GPT-Image-Jun-6-2025-11-09-18-AM.png'; // data-ai-hint="Indian motifs pattern dark gold"
+  const homepageBackgroundImageUrl =
+    "https://i.postimg.cc/52yMfCv6/Chat-GPT-Image-Jun-6-2025-11-09-18-AM.png";
+  const [showMap, setShowMap] = useState(true);
 
   return (
     <div
       className="text-foreground"
       style={{
         backgroundImage: `url('${homepageBackgroundImageUrl}')`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center center',
-        backgroundAttachment: 'fixed', // Keep fixed if you want parallax-like effect on homepage scroll
-        backgroundRepeat: 'no-repeat',
+        backgroundSize: "cover",
+        backgroundPosition: "center center",
+        backgroundAttachment: "fixed",
+        backgroundRepeat: "no-repeat",
       }}
     >
-      {/* Hero Section */}
       <section className="relative py-16 md:py-24 lg:py-32 container max-w-screen-xl mx-auto px-4 md:px-6">
-        {/* Hero background is now handled by the parent div's style */}
         <div className="relative z-10 text-left md:w-2/3 lg:w-1/2">
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold font-headline mb-6 text-shadow-lg">
             Explore <br /> Cultural India
@@ -62,8 +96,9 @@ export default function HomePage() {
           </p>
           <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
             <Button asChild size="lg" className="px-8 py-3 text-sm rounded-lg shadow-lg">
-              <Link href="/">Interactive Map</Link>
+              <Link href="/map">Interactive Map</Link>
             </Button>
+
             <Button asChild variant="secondary" size="lg" className="px-8 py-3 text-sm rounded-lg shadow-lg">
               <Link href="/ai-guide">Ask AI Guide</Link>
             </Button>
@@ -75,10 +110,9 @@ export default function HomePage() {
       <section className="py-12 lg:py-20 bg-background/70 backdrop-blur-sm">
         <div className="container max-w-screen-xl mx-auto px-4 md:px-6">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
-            {/* Upcoming Events Card */}
             <Card className="bg-card border-border/50 shadow-xl overflow-hidden flex flex-col group relative">
               <Link href={upcomingEvent.href} className="block">
-                <div className="relative w-full h-96 md:h-[450px]"> {/* Taller image area */}
+                <div className="relative w-full h-96 md:h-[450px]">
                   <Image
                     src={upcomingEvent.imageUrl}
                     alt={upcomingEvent.name}
@@ -86,7 +120,7 @@ export default function HomePage() {
                     objectFit="cover"
                     data-ai-hint={upcomingEvent.imageHint}
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div> {/* Darker gradient */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
                 </div>
                 <CardContent className="absolute bottom-0 left-0 p-5 z-10 text-white w-full">
                   <h3 className="text-xs uppercase tracking-wider font-semibold text-primary mb-1">Upcoming Events</h3>
@@ -190,7 +224,6 @@ export default function HomePage() {
             Spin the cultural wheel and win virtual rewards from different regions of India – from folk tales to food trails!
           </p>
 
-          {/* Embedded Spin Wheel UI */}
           <div className="flex justify-center">
             <iframe
               src="/maatiloot"
